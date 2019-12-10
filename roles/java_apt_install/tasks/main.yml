@@ -1,4 +1,4 @@
 - name: Update repositories cache and install java package
   apt:
-    name: "openjdk-11.1-jre"
+    name: "openjdk-11-jre"
     update_cache: yes
