@@ -22,6 +22,6 @@ resource "digitalocean_droplet" "jenkins" {
 }
 
 resource "digitalocean_floating_ip_assignment" "jenkins_fip" {
-  ip_address = "178.128.139.237"
+  ip_address = "134.209.137.43"
   droplet_id = digitalocean_droplet.jenkins.id
 }

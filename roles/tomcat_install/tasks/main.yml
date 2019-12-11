@@ -59,7 +59,7 @@
     path: "/opt/tomcat/{{ item }}"
     state: directory
     recurse: yes
-    owner: root
+    owner: tomcat
     group: tomcat
   loop:
     - lib
@@ -70,7 +70,7 @@
   file:
     path: "/opt/tomcat/{{ item }}"
     state: file
-    owner: root
+    owner: tomcat
     group: tomcat
   loop:
     - BUILDING.txt
@@ -90,7 +90,7 @@
   file:
     path: "/opt/tomcat/bin/setenv.sh"
     state: file
-    owner: root
+    owner: tomcat
     group: tomcat
     mode: g+x
 
