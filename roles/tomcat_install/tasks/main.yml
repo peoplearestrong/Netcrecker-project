@@ -14,13 +14,8 @@
 
 - name: Create directory tomcat
   file:
-    path: "/opt/tomcat/{{ item }}"
+    path: "/opt/tomcat/latest"
     state: directory
-    owner: tomcat
-    group: tomcat
-  loop:
-    - latest
-    - .jenkins
 
 - name: Create new user tomcat
   user:
@@ -30,6 +25,16 @@
     shell: /bin/bash
     createhome: yes
     home: "/opt/tomcat/latest"
+
+- name: Create directory tomcat
+  file:
+    path: "/opt/tomcat/{{ item }}"
+    state: directory
+    owner: tomcat
+    group: tomcat
+  loop:
+    - latest
+    - .jenkins
 
 - name: Change own directory tomcat
   file:
