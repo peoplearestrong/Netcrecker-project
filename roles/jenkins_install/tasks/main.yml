@@ -7,7 +7,6 @@
     dest: /opt/tomcat/webapps
 
 - name: Start tomcat
-  become_user: tomcat
   systemd:
     state: started
     name: tomcat
@@ -27,7 +26,6 @@
     dest: '/root/.jenkins/config.xml'
 
 - name: Restart tomcat
-  become_user: tomcat
   systemd:
     state: restarted
     name: tomcat
