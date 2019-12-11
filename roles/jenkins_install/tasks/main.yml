@@ -2,6 +2,7 @@
 # tasks file for jenkins_install
 
 - name: Download Jenkins
+  become-user: tomcat
   get_url:
     url: "{{jenkins_url}}"
     dest: /opt/tomcat/latest/webapps
