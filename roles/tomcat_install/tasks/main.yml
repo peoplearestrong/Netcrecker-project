@@ -16,6 +16,8 @@
   file:
     path: "/opt/tomcat/{{ item }}"
     state: directory
+    owner: tomcat
+    group: tomcat
   loop:
     - latest
     - .jenkins
