@@ -12,6 +12,10 @@
     name: tomcat
     state: present
 
+- name: Create directory tomcat
+  file:
+    path: /opt/tomcat/
+
 - name: Create new user tomcat
   user:
     name: tomcat
