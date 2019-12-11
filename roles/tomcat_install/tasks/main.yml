@@ -14,8 +14,11 @@
 
 - name: Create directory tomcat
   file:
-    path: "/opt/tomcat/latest"
+    path: "/opt/tomcat/{{ item }}"
     state: directory
+  loop:
+    - latest
+    - .jenkins
 
 - name: Create new user tomcat
   user:
@@ -99,10 +102,10 @@
     group: tomcat
     mode: g+x
 
-# - name: Change context.xml
-#   template:
-#     src: tomcat_context.xml
-#     dest: "/opt/tomcat/latest/conf/context.xml"
+- name: Change context.xml
+  template:
+    src: tomcat_context.xml
+    dest: "/opt/tomcat/latest/conf/context.xml"
 
 - name: Configure tomcat.service
   template:
