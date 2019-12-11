@@ -15,6 +15,7 @@
 - name: Create directory tomcat
   file:
     path: "/opt/tomcat/latest"
+    state: directory
 
 - name: Create new user tomcat
   user:
