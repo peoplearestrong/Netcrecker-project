@@ -71,3 +71,4 @@
 - name: Start pipeline
   uri:
     url: "http://{{jenkins_ip_external}}:{{jenkins_port}}/jenkins/job/{{job_name}}/build?token=START_PIPELINE"
+    status_code: 201
