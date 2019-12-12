@@ -36,7 +36,6 @@
     - latest
     - .jenkins
 
-
 - name: Downloading required tomcat
   get_url:
     url: "{{tomcat_url}}"
@@ -63,18 +62,6 @@
     path: "/opt/tomcat/latest/conf"
     state: directory
     mode: g+x
-
-# - name: Change group directory tomcat
-#   file:
-#     path: "/opt/tomcat/latest/{{ item }}"
-#     state: directory
-#     recurse: yes
-#     owner: tomcat
-#     group: tomcat
-#   loop:
-#     - lib
-#     - conf
-#     - bin
 
 - name: Change group directory tomcat
   file:
@@ -151,16 +138,3 @@
   template:
     src: context_host.xml
     dest: '/opt/tomcat/latest/webapps/host-manager/META-INF/context.xml'
-
-# - name: Tomcat /webapps ...
-#   file:
-#     path: "/opt/tomcat/latest/{{ item }}"
-#     state: directory
-#     recurse: yes
-#     owner: tomcat
-#     group: tomcat
-#   loop:
-#     - webapps
-#     - work
-#     - temp
-#     - logs
