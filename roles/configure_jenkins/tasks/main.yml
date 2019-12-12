@@ -27,7 +27,6 @@
   loop:
     - ws-cleanup # Workspace Cleanup
     - workflow-aggregator # Pipeline
-    - pipeline-github-lib # Pipeline: GitHub Groovy Libraries
     - pipeline-stage-view # Pipeline: Stage View
     - git # Git
     - ansible # Ansible
