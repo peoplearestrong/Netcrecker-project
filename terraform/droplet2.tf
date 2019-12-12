@@ -2,7 +2,7 @@ resource "digitalocean_droplet" "jenkins" {
   image = "ubuntu-18-04-x64"
   name = "jenkins"
   region = "ams3"
-  size = "s-1vcpu-1gb"
+  size = "s-1vcpu-3gb"
   private_networking = true
   ssh_keys = [
     var.ssh_fingerprint
@@ -22,6 +22,6 @@ resource "digitalocean_droplet" "jenkins" {
 }
 
 resource "digitalocean_floating_ip_assignment" "jenkins_fip" {
-  ip_address = "178.128.139.237"
+  ip_address = "134.209.137.43"
   droplet_id = digitalocean_droplet.jenkins.id
 }
