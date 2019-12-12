@@ -26,7 +26,7 @@
     createhome: yes
     home: "/opt/tomcat/latest"
 
-- name: Create directory tomcat
+- name: Change owner and group directory tomcat
   file:
     path: "/opt/tomcat/{{ item }}"
     state: directory
@@ -36,11 +36,6 @@
     - latest
     - .jenkins
 
-- name: Change own directory tomcat
-  file:
-    path: "/opt/tomcat"
-    state: directory
-    owner: root
 
 - name: Downloading required tomcat
   get_url:
@@ -69,17 +64,25 @@
     state: directory
     mode: g+x
 
+# - name: Change group directory tomcat
+#   file:
+#     path: "/opt/tomcat/latest/{{ item }}"
+#     state: directory
+#     recurse: yes
+#     owner: tomcat
+#     group: tomcat
+#   loop:
+#     - lib
+#     - conf
+#     - bin
+
 - name: Change group directory tomcat
   file:
-    path: "/opt/tomcat/latest/{{ item }}"
+    path: "/opt/tomcat/"
     state: directory
     recurse: yes
     owner: tomcat
     group: tomcat
-  loop:
-    - lib
-    - conf
-    - bin
 
 - name: Change group file tomcat
   file:
@@ -149,15 +152,15 @@
     src: context_host.xml
     dest: '/opt/tomcat/latest/webapps/host-manager/META-INF/context.xml'
 
-- name: Tomcat /webapps ...
-  file:
-    path: "/opt/tomcat/latest/{{ item }}"
-    state: directory
-    recurse: yes
-    owner: tomcat
-    group: tomcat
-  loop:
-    - webapps
-    - work
-    - temp
-    - logs
+# - name: Tomcat /webapps ...
+#   file:
+#     path: "/opt/tomcat/latest/{{ item }}"
+#     state: directory
+#     recurse: yes
+#     owner: tomcat
+#     group: tomcat
+#   loop:
+#     - webapps
+#     - work
+#     - temp
+#     - logs
