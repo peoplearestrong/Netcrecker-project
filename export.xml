@@ -26,7 +26,7 @@
 
       stage(&apos;Clone git rep&apos;) {
           steps {
-              git &apos;https://github.com/endermAH/Netcrecker-project.git&apos;
+              git &apos;https://github.com/peoplearestrong/Netcrecker-project.git&apos;
           }
       }
 
